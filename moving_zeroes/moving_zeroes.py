@@ -5,13 +5,14 @@ Returns: a List of integers
 def moving_zeroes(arr):
     # Your code here
 
-    len = len(arr)
+    l = len(arr)
     
     out = [el for el in arr if el is not 0]
     
-    out = out + [0]*len
+    out = out + [0]*l
     
-    out = out[:len]
+    return out[:l]
+    
 
 
 if __name__ == '__main__':
