@@ -5,7 +5,8 @@ Returns: a List of integers
 def product_of_all_other_numbers(arr):
     # Your code here
 
-    pass
+    from functoools import reduce
+     reduce(arr, * )
 
 
 if __name__ == '__main__':
