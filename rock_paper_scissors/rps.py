@@ -2,7 +2,8 @@
 
 import sys
 
-def rock_paper_scissors(n):
+def rock_paper_scissors(n, cache=None):
+    
     plays = [['rock'], ['paper'], ['scissors']]
     
     if n == 0:
@@ -11,14 +12,16 @@ def rock_paper_scissors(n):
     if n == 1:
         return [p for p in plays]
     
-    shorter = rock_paper_scissors(n-1)
-    
-    out = []
-    for s in shorter:
-        for p in plays:
-            out.append(s + p)
-            
-    return out
+    if not cache:
+        cache = {1: plays}
+        
+    # a NEW one!
+    foo = []
+    for play in plays:
+        for i in rock_paper_scissors(n-1):
+            foo.append(play + i)
+    cache[n] = foo
+    return foo
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
